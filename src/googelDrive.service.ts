@@ -45,8 +45,14 @@ export class GoogleDriveService {
         },
         media: media,
       });
-
+      var permission = { 'type': 'anyone', 'role': 'reader', 'value': '' };
       const fileId = driveResponse.data.id;
+      await this.drive.permissions.create({
+        resource: permission,
+        fileId: fileId,
+        fields: 'id',
+        sendNotificationEmail: false,
+      });
       return `https://drive.google.com/uc?id=${fileId}`;
     } catch (e) {
       throw new Error(e);
