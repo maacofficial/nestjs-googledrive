@@ -45,7 +45,7 @@ export class GoogleDriveService {
         },
         media: media,
       });
-      var permission = { 'type': 'anyone', 'role': 'reader', 'value': '' };
+      var permission = { type: 'anyone', role: 'reader', value: '' };
       const fileId = driveResponse.data.id;
       await this.drive.permissions.create({
         resource: permission,
