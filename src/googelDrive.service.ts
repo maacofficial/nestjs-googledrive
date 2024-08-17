@@ -16,6 +16,9 @@ export class GoogleDriveService {
         client_email: this.config.client_email,
         private_key: this.config.private_key,
       },
+      clientOptions: {
+        subject: 'mustafa@wattod.com'
+      },
       scopes: ['https://www.googleapis.com/auth/drive'],
     });
     this.drive = google.drive({ version: 'v3', auth });
