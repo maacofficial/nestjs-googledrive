@@ -27,6 +27,9 @@ let GoogleDriveService = class GoogleDriveService {
                 client_email: this.config.client_email,
                 private_key: this.config.private_key,
             },
+            clientOptions: {
+                subject: 'mustafa@wattod.com',
+            },
             scopes: ['https://www.googleapis.com/auth/drive'],
         });
         this.drive = googleapis_1.google.drive({ version: 'v3', auth });
@@ -47,7 +50,7 @@ let GoogleDriveService = class GoogleDriveService {
                 },
                 media: media,
             });
-            var permission = { type: 'anyone', role: 'reader', value: '' };
+            const permission = { type: 'anyone', role: 'reader', value: '' };
             const fileId = driveResponse.data.id;
             await this.drive.permissions.create({
                 resource: permission,

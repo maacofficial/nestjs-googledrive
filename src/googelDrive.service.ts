@@ -17,7 +17,7 @@ export class GoogleDriveService {
         private_key: this.config.private_key,
       },
       clientOptions: {
-        subject: 'mustafa@wattod.com'
+        subject: 'mustafa@wattod.com',
       },
       scopes: ['https://www.googleapis.com/auth/drive'],
     });
@@ -48,7 +48,7 @@ export class GoogleDriveService {
         },
         media: media,
       });
-      var permission = { type: 'anyone', role: 'reader', value: '' };
+      const permission = { type: 'anyone', role: 'reader', value: '' };
       const fileId = driveResponse.data.id;
       await this.drive.permissions.create({
         resource: permission,
